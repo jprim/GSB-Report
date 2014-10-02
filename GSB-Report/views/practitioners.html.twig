@@ -5,7 +5,7 @@
 
 {% block content %}
 <h2 class="text-center">{{ block('title') }}</h2>
-{% if practitioner %}
+{% if practitioners %}
     <div class="table-responsive">
         <table class="table table-hover table-condensed">
             <thead>
@@ -16,7 +16,7 @@
             </thead>
             {% for practitioner in practitioners %}
                 <tr>
-                    <td><a href="/drugs/{{ practitioner.id }}">{{ practitioner.tradeName }}</a></td>
+                    <td><a href="/practitioners/{{ practitioner.id }}">{{ practitioner.name }}</a></td>
                     <td>{{ practitioner.type.name }}</td>
                 </tr>
             {% endfor %}

@@ -35,19 +35,19 @@ $app->post('/drugs/results/', function(Request $request) use ($app) {
 // Details for a practitioner
 $app->get('/practitioners/{id}', function($id) use ($app) {
     $practitioner = $app['dao.practitioner']->find($id);
-    return $app['twig']->render('practitioner.html.twig', array('practitioner' => $drug));
+    return $app['twig']->render('practitioner.html.twig', array('practitioner' => $practitioners));
 });
 
 // List of all practitioners
 $app->get('/practitioners/', function() use ($app) {
     $practitioners = $app['dao.practitioner']->findAll();
-    return $app['twig']->render('practitioners.html.twig', array('practitioners' => $drugs));
+    return $app['twig']->render('practitioners.html.twig', array('practitioners' => $practitioners));
 });
 
 // Search form for practitioners
 $app->get('/practitioners/search/', function() use ($app) {
     $families = $app['dao.type']->findAll();
-    return $app['twig']->render('practitioners_search.html.twig', array('types' => $families));
+    return $app['twig']->render('practitioners_search.html.twig', array('types' => $types));
 });
 
 // Results page for practitioners

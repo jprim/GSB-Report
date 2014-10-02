@@ -49,7 +49,7 @@ class PractitionerTypeDAO extends DAO
      * @return \GSB\Domain\Practitioner_Type
      */
     protected function buildDomainObject($row) {
-        $type = new Type();
+        $type = new PractitionerType();
         $type->setId($row['practitioner_type_id']);
         $type->setName($row['practitioner_type_name']);
         $type->setName($row['practitioner_type_place']);

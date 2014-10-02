@@ -83,12 +83,12 @@ class PractitionerDAO extends DAO
 
         $practitioner = new Practitioner();
         $practitioner->setId($row['practitioner_id']);
-        $practitioner->setCopyrighting($row['practitioner_name']);
-        $practitioner->setTradeName($row['practitioner_first_name']);
-        $practitioner->setContent($row['practitioner_address']);
-        $practitioner->setEffects($row['practitioner_zip_code']);
-        $practitioner->setContraindication($row['practitioner_city']);
-        $practitioner->setFamily($type);
+        $practitioner->setName($row['practitioner_name']);
+        $practitioner->setFirst_name($row['practitioner_first_name']);
+        $practitioner->setAddress($row['practitioner_address']);
+        $practitioner->setZip_code($row['practitioner_zip_code']);
+        $practitioner->setCity($row['practitioner_city']);
+        $practitioner->setType($type);
         return $practitioner;
     }
 }
