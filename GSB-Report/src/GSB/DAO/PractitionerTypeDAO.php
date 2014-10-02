@@ -2,9 +2,9 @@
 
 namespace GSB\DAO;
 
-use GSB\Domain\Practitioner_Type;
+use GSB\Domain\PractitionerType;
 
-class Practitioner_TypeDAO extends DAO
+class PractitionerTypeDAO extends DAO
 {
     /**
      * Returns the list of all types, sorted by name.
@@ -29,7 +29,7 @@ class Practitioner_TypeDAO extends DAO
      *
      * @param integer $id The type id.
      *
-     * @return \GSB\Domain\Practitioner_Type|throws an exception if no type is found.
+     * @return \GSB\Domain\PractitionerType|throws an exception if no type is found.
      */
     public function find($id) {
         $sql = "select * from practitioner_type where practitioner_type_id=?";

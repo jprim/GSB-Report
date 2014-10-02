@@ -2,7 +2,7 @@
 
 namespace GSB\Domain;
 
-class Practitioner_Type
+class PractitionerType
 {
     /**
      * Family id.

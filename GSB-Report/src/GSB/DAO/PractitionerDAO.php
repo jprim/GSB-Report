@@ -9,10 +9,10 @@ class PractitionerDAO extends DAO
     /**
      * @var \GSB\DAO\Practitioner_TypeDAO
      */
-    private $practitioner_TypeDAO;
+    private $practitionerTypeDAO;
 
-    public function setPractitioner_TypeDAO($practitioner_typeDAO) {
-        $this->practitioner_TypeDAO = $practitioner_typeDAO;
+    public function setPractitionerTypeDAO($practitionerTypeDAO) {
+        $this->practitionerTypeDAO = $practitionerTypeDAO;
     }
 
     /**
@@ -79,7 +79,7 @@ class PractitionerDAO extends DAO
      */
     protected function buildDomainObject($row) {
         $typeId = $row['practitioner_type_id'];
-        $type = $this->Practitioner_TypeDAO->find($typeId);
+        $type = $this->practitionerTypeDAO->find($typeId);
 
         $practitioner = new Practitioner();
         $practitioner->setId($row['practitioner_id']);

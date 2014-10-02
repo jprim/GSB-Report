@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+{% set practitionerMenu = true %}
+
+{% block title %}Praticients{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+{% if practitioner %}
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Nom commercial</th>
+                    <th>Famille</th>
+                </tr>
+            </thead>
+            {% for practitioner in practitioners %}
+                <tr>
+                    <td><a href="/drugs/{{ practitioner.id }}">{{ practitioner.tradeName }}</a></td>
+                    <td>{{ practitioner.type.name }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% else %}
+    <div class="alert alert-warning">Aucun praticients trouvés.</div>
+{% endif %}   
+{% endblock %}
