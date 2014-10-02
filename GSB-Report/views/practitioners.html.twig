@@ -10,14 +10,24 @@
         <table class="table table-hover table-condensed">
             <thead>
                 <tr>
-                    <th>Nom commercial</th>
-                    <th>Famille</th>
+                    <th>Type</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse</th>
+                    <th>CP</th>
+                    <th>Ville</th>
+                    <th>Notoriété</th>
                 </tr>
             </thead>
             {% for practitioner in practitioners %}
                 <tr>
-                    <td><a href="/practitioners/{{ practitioner.id }}">{{ practitioner.name }}</a></td>
-                    <td>{{ practitioner.type.name }}</td>
+                    <td><a href="/practitioners/{{ practitioner.id }}">{{ practitioner.type.name }}</a></td>
+                    <td>{{ practitioner.name }}</td>
+                    <td>{{ practitioner.first_name }}</td>
+                    <td>{{ practitioner.address }}</td>
+                    <td>{{ practitioner.zip_code }}</td>
+                    <td>{{ practitioner.city }}</td>
+                    <td>{{ practitioner.coefficient }}</td>
                 </tr>
             {% endfor %}
         </table>
