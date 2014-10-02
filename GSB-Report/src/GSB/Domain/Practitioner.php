@@ -49,14 +49,14 @@ class Practitioner
     /**
      * notoriety coefficient.
      *
-     * @var float
+     * @var double
      */
     private $coefficient;
 
     /**
      * Type.
      *
-     * @var \GSB\Domaine\Type
+     * @var \GSB\Domaine\PractitionerType
      */
     private $type;
 

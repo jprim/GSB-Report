@@ -46,7 +46,7 @@ $app->get('/practitioners/', function() use ($app) {
 
 // Search form for practitioners
 $app->get('/practitioners/search/', function() use ($app) {
-    $families = $app['dao.type']->findAll();
+    $types = $app['dao.type']->findAll();
     return $app['twig']->render('practitioners_search.html.twig', array('types' => $types));
 });
 
