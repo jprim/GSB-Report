@@ -4,7 +4,7 @@ namespace GSB\DAO;
 
 use GSB\Domain\Practitioner_Type;
 
-class TypeDAO extends DAO
+class Practitioner_TypeDAO extends DAO
 {
     /**
      * Returns the list of all types, sorted by name.
