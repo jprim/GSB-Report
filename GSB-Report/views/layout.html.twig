@@ -36,8 +36,10 @@
                                 <li><a href="/practitioners/search/">Rechercher</a></li>
                             </ul>
                         </li>
+                    </ul>
                         {# User Authentication #}
-                       
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     <ul class="nav navbar-nav navbar-right">
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <li class="dropdown">
@@ -45,6 +47,7 @@
                                 <span class="glyphicon glyphicon-user"></span> Bienvenue, {{ app.security.token.user.username }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                                    <li><a href="">Profil</a></li>
                                 </ul>
                             </li>
                         {% else %}
@@ -56,9 +59,7 @@
                                 </ul>
                             </li>
                         {% endif %}
-                        </ul>
-               
-                    </ul>
+                        </ul> 
                 </div>
             </div><!-- /.container -->
         </nav>

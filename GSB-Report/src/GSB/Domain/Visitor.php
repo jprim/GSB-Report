@@ -1,8 +1,9 @@
 <?php
 
 namespace GSB\Domain;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class Visitor
+class Visitor implements UserInterface
 {
     /**
      * Visitor id.
@@ -190,7 +191,7 @@ class Visitor
         $this->city = $city;
     }
 
-    public function setDateHiring(Date $dateHiring) {
+    public function setDateHiring($dateHiring) {
         $this->dateHiring = $dateHiring;
     }
 
@@ -214,6 +215,17 @@ class Visitor
         $this->type = $type;
     }
 
+    public function getRoles()
+    {
+        return array($this->getRole());
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials() {
+        // Nothing to do here
+    }
 
 }
     
