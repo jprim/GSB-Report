@@ -1,27 +1,27 @@
 {% extends "layout.html.twig" %}
-{% set practitionerMenu = true %}
+{% set practMenu = true %}
 
 {% block title %}Praticients{% endblock %}
 
 {% block content %}
-<h2 class="text-center">{{ block('title') }}</h2>
+    <h2 class="text-center">{{ block('title') }}</h2>
 {% if practitioners %}
     <div class="table-responsive">
         <table class="table table-hover table-condensed">
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Prénom</th>  
+                    <th>Prénom</th>
                     <th>Ville</th>
                     <th>Type</th>
                 </tr>
             </thead>
             {% for practitioner in practitioners %}
                 <tr>
-                    <td><a href="/practitioners/{{ practitioner.id }}">{{ practitioner.name }}</a></td>        
+                    <td><a href="/practitioners/{{ practitioner.id }}">{{ practitioner.name }}</a></td>
                     <td>{{ practitioner.first_name }}</td>
                     <td>{{ practitioner.city }}</td>
-                    <td>{{ practitioner.type.name}}</td>
+                    <td>{{practitioner.typeID.name}}</td>                    
                 </tr>
             {% endfor %}
         </table>
@@ -29,4 +29,4 @@
 {% else %}
     <div class="alert alert-warning">Aucun praticients trouvés.</div>
 {% endif %}   
-{% endblock %}
+{% endblock %}    

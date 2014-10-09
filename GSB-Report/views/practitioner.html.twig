@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
-{% set practitionerMenu = true %}
+{% set practMenu = true %}
 
-{% block title %}{{ practitioner.name }}{% endblock %}
+{% block title %}{{"Practicient "~ practitioner.name~" "~ practitioner.first_name }}{% endblock %}
 
 {% block content %}
 <h2 class="text-center">{{ block('title') }}</h2>
@@ -10,19 +10,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label">Type</label>
             <div class="col-sm-9">
-                <p class="form-control-static">{{ practitioner.type.name }}</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Nom</label>
-            <div class="col-sm-9">
-            <p class="form-control-static">{{ practitioner.name }}</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Prénom</label>
-            <div class="col-sm-9">
-                <p class="form-control-static">{{ practitioner.first_name }}</p>
+                <p class="form-control-static">{{ practitioner.typeID.name }}</p>
             </div>
         </div>
         <div class="form-group">
@@ -31,24 +19,27 @@
                 <p class="form-control-static">{{ practitioner.address }}</p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Code postal</label>
+             <div class="form-group">
+            <label class="col-sm-3 control-label">Code Postal</label>
             <div class="col-sm-9">
-                <p class="form-control-static">{{ practitioner.zip_code }}</p>
+                <p class="form-control-static">{{  practitioner.zip_code}}</p>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Ville</label>
             <div class="col-sm-9">
-                <p class="form-control-static">{{ practitioner.city }}</p>
+            <p class="form-control-static">{{ practitioner.city  }}</p>
             </div>
         </div>
+        
+       
         <div class="form-group">
-            <label class="col-sm-3 control-label">Notoriété</label>
+            <label class="col-sm-3 control-label">Notoriete</label>
             <div class="col-sm-9">
                 <p class="form-control-static">{{ practitioner.coefficient }}</p>
             </div>
         </div>
+        
     </form>
 </div>
 {% endblock %}

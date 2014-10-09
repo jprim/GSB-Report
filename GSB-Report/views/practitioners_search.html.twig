@@ -1,12 +1,14 @@
 {% extends "layout.html.twig" %}
-{% set practitionerMenu = true %}
+{% set practMenu = true %}
+
 {% block title %}Recherche de praticients{% endblock %}
+
 {% block content %}
 <h2 class="text-center">{{ block('title') }}</h2>
 <div class="well">
     <form class="form-horizontal" role="form" action="/practitioners/results/" method="post">
         <div class="form-group">
-            <label class="col-sm-2 col-sm-offset-1 control-label">Type</label>
+            <label class="col-sm-2 col-sm-offset-1 control-label">Type </label>
             <div class="col-sm-7">
                 <select class="form-control" name="type">
                     {% for type in types %}
