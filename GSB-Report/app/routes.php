@@ -33,7 +33,7 @@ $app->post('/drugs/results/', function(Request $request) use ($app) {
 });
 
 
-// list of all practitioner
+// list of all practitioners
 $app->get('/practitioners/', function() use ($app) {
     $practitioners = $app['dao.practitioner']->findAll();
     return $app['twig']->render('practitioners.html.twig', array('practitioners' => $practitioners));
@@ -56,3 +56,11 @@ $app->get('/practitioners/search/', function() use ($app) {
     $types = $app['dao.type']->findAll();
     return $app['twig']->render('practitioners_search.html.twig', array('types' => $types));
 });
+
+//Form connection
+$app->get('/login', function(Request $request) use ($app) {
+    return $app['twig']->render('connection.html.twig', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+})->bind('login'); 
