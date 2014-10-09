@@ -4,15 +4,62 @@ namespace GSB\Domain;
 
 class Practitioner 
 {
+    /**
+     * Practitioner id.
+     *
+     * @var integer
+     */
     private $id;
-    private $type_id;
+
+    /**
+     * Name.
+     *
+     * @var string
+     */
     private $name;
-    private $first_name;
+
+    /**
+     * First name.
+     *
+     * @var string
+     */
+    private $firstName;
+
+    /**
+     * Address.
+     *
+     * @var string
+     */
     private $address;
-    private $zip_code;
+
+    /**
+     * Zip Code.
+     *
+     * @var string
+     */
+    private $zipCode;
+
+    /**
+     * City.
+     *
+     * @var string
+     */
     private $city;
-    private $coefficient;
-    
+
+    /**
+     * Notoriety coefficient.
+     *
+     * @var float
+     */
+    private $notorietyCoefficient;
+
+    /**
+     * Type.
+     *
+     * @var \GSB\Domaine\PractitionerType
+     */
+    private $type;
+
     public function getId() {
         return $this->id;
     }
@@ -20,15 +67,7 @@ class Practitioner
     public function setId($id) {
         $this->id = $id;
     }
-    
-    public function getTypeId() {
-        return $this->type_id;
-    }
 
-    public function setTypeId($type_id) {
-        $this->type_id = $type_id;
-    }
-    
     public function getName() {
         return $this->name;
     }
@@ -36,15 +75,15 @@ class Practitioner
     public function setName($name) {
         $this->name = $name;
     }
-    
-    public function getFirst_name() {
-        return $this->first_name;
+
+    public function getFirstName() {
+        return $this->firstName;
     }
 
-    public function setFirst_name($first_name) {
-        $this->first_name = $first_name;
+    public function setFirstName($firstName) {
+        $this->firstName = $firstName;
     }
-     
+
     public function getAddress() {
         return $this->address;
     }
@@ -52,14 +91,15 @@ class Practitioner
     public function setAddress($address) {
         $this->address = $address;
     }
-    public function getZip_code() {
-        return $this->zip_code;
+
+    public function getZipCode() {
+        return $this->zipCode;
     }
 
-    public function setZip_code($zip_code) {
-        $this->zip_code = $zip_code;
+    public function setZipCode($zipCode) {
+        $this->zipCode = $zipCode;
     }
-    
+
     public function getCity() {
         return $this->city;
     }
@@ -67,11 +107,20 @@ class Practitioner
     public function setCity($city) {
         $this->city = $city;
     }
-    public function getCoefficient() {
-        return $this->coefficient;
+
+    public function getNotorietyCoefficient() {
+        return $this->notorietyCoefficient;
     }
 
-    public function setCoefficient($coef) {
-        $this->coefficient = $coef;
+    public function setnotorietyCoefficient($notorietyCoefficient) {
+        $this->notorietyCoefficient = $notorietyCoefficient;
+    }
+
+    public function getType() {
+        return $this->type;
+    }
+
+    public function setType($type) {
+        $this->type = $type;
     }
 }
