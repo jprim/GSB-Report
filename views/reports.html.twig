@@ -18,10 +18,10 @@
             </thead>
             {% for report in reports %}
                 <tr>
-                    <td>{{ visitRepot.date }}</td>
-                    <td>{{ visitReport.practitioner.name }}</td>
-                    <td>{{ visitReport.city }}</td>
-                    <td>{{ visitReport.purpose }}</td>
+                    <td>{{ report.reportingdate }}</td>
+                    <td>{{ report.practitioner.name }}</td>
+                    <td>{{ report.city }}</td>
+                    <td>{{ report.purpose }}</td>
                 </tr>
             {% endfor %}
         </table>
