@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+{% set reportMenu = true %}
+
+{% block title %}Vos rapports de visite{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+{% if reports %}
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Praticien</th>
+                    <th>Ville</th>
+                    <th>Motif</th>
+                </tr>
+            </thead>
+            {% for report in reports %}
+                <tr>
+                    <td>{{ report.date }}</td>
+                    <td>{{ report.practitioner }}</td>
+                    <td>{{ report.city }}</td>
+                    <td>{{ report.purpose }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% else %}
+    <div class="alert alert-warning">Aucun rapport de visite trouvé.</div>
+{% endif %}   
+{% endblock %}

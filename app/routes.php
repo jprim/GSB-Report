@@ -94,3 +94,9 @@ $app->match('/me', function(Request $request) use ($app) {
     $visitorFormView = $visitorForm->createView();
     return $app['twig']->render('visitor.html.twig', array('visitorForm' => $visitorFormView));
 });
+
+// List of all visit report
+$app->get('/reports/', function() use ($app) {
+    $reports = $app['dao.visitreport']->findAll();
+    return $app['twig']->render('reports.html.twig', array('reports' => $reports));
+});
