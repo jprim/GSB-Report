@@ -6,6 +6,18 @@ use GSB\Domain\VisitReport;
 
 class VisitReportDAO extends DAO
 {
+    private $familyDAO;
+
+    public function setPractitionerId($practitionerDAO) {
+        $this->practitionerDAO = $practitionerDAO;
+    }
+    
+    private $practitionerDAO;
+
+    public function setVisitorId($visitorDAO) {
+        $this->visitorDAO = $visitorDAO;
+    }
+    
  
      /**
      * Returns the list of all drugs, sorted by trade name.
@@ -25,6 +37,34 @@ class VisitReportDAO extends DAO
         return $reports;
     }
     
+   
+    
+    public function findPractioner($practitionerId) {
+        $sql = "select * from practitioner where practitioner_id=?";
+        $result = $this->getDb()->fetchAll($sql, array($practitionerId));
+        
+        // Convert query result to an array of domain objects
+        $practitioners = array();
+        foreach ($result as $row) {
+            $practitionerName = $row['practitioner_name'];
+            $practitioners[$practitionerName] = $this->buildDomainObject($row);
+        }
+        return $practitioners;
+    }
+    
+    public function findVisitor($visitorId) {
+        $sql = "select * from visitor where visitor_id=?";
+        $result = $this->getDb()->fetchAll($sql, array($visitorId));
+        
+        // Convert query result to an array of domain objects
+        $visitors = array();
+        foreach ($result as $row) {
+            $visitorName = $row['visitor_last_name'];
+            $visitors[$visitorName] = $this->buildDomainObject($row);
+        }
+        return $visitors;
+    }
+    
     
     /**
      * Creates a VisitRepor instance from a DB query result row.
@@ -35,17 +75,17 @@ class VisitReportDAO extends DAO
      */
     protected function buildDomainObject($row) {
         $practitionerId = $row['practitioner_id'];
-        $practitioner = $this->PractitionerDAO->find($practitionerId);
+        $practitioner = $this->practitionerDAO->findPractioner($practitionerId);
         
         $visitorId = $row['visitor_id'];
-        $visitor = $this->VisitorDAO->find($visitorId);
+        $visitor = $this->visitorDAO->findVisitor($visitorId);
         
-        $report = new Drug();
+        $report = new VisitReport();
         $report->setId($row['report_id']);
         
-        $report->setPractionerId($practitioner);
+        $report->setPractionerId(practitioner_id);
         
-        $report->setVisitorId($visitor);
+        $report->setVisitorId(visitor_id);
         
         $report->setReportingDate($row['reporting_date']);
         $report->setAssessment($row['assessment']);
